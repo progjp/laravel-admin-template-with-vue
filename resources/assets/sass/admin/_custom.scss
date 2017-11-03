@@ -1,0 +1,87 @@
+.v-centered {
+    align-items: center;
+}
+.color-white{
+	color: #fff;
+}
+
+.admin-panel-wrapper{
+	position: relative;
+	padding-left: 250px;
+}
+
+// Left Navigation
+.admin-panel-left-menu{
+	width: 250px;
+    position: fixed;
+    height: 100%;
+    background-color: $nav-area-bg;
+    top: 0px;
+    left: 0px;
+    z-index: 3;
+}
+.admin-panel-name{
+	height: 50px;
+    padding: 10px;
+    border-bottom: 1px solid $nav-dark-border;
+}
+.admin-panel-name a.logo {
+    font-size: 20px;
+    display: block;
+    color: #fff;
+    font-weight: 700;
+}
+
+// Top navigation
+.admin-panel-top-menu{
+    background-color: $nav-area-bg;
+	height: 50px;
+	min-height: 1rem;
+	border-bottom: 1px solid $nav-area-bg;
+}
+.top-menu-left-list{}
+.top-menu-left-list li{
+	border-left: 1px solid $nav-dark-border;
+    line-height: 50px;
+    color: #fff;
+    padding: 0 17px;
+}
+.top-menu-left-list li a{
+    @extend .color-white;
+    font-size: 1rem;
+}
+.top-menu-left-list li a.page-navigation-toggle{
+	font-size: 18px;
+}
+.mini-profile .user-small-img{
+    margin-right: 10px;
+    border-radius: 50%;
+    border: 3px solid #5a7793;
+}
+.mini-profile-text{
+	width: 145px;
+	padding-right: 10px;
+}
+.mini-profile-text a{
+    @extend .color-white;
+	line-height: 16px;
+    font-size: 12px;
+    font-weight: 700;
+}
+.mini-profile-text span{
+	font-size: 11px;
+    color: #CCC;
+    display: block;
+}
+.mini-profile-menu {
+	padding: 0 15px 0 0;
+}
+.mini-profile-menu .dropdown-menu-trigger{
+    @extend .color-white;
+	display: block;
+    opacity: 0.7;
+    font-size: 16px;
+}
+.mini-profile.level-right .level-item{
+	margin: 0;
+}

@@ -1,0 +1,13 @@
+// Bulma initial variables
+@import "node_modules/bulma/sass/utilities/initial-variables";
+
+$family-primary: 'Open Sans', sans-serif;
+$nav-area-bg: #334454;
+$nav-dark-border: #293744;
+$nav-light-border: #3d5164;
+
+// Bulma Core
+@import "node_modules/bulma/bulma";
+
+// Custom css for this template
+@import "custom";
