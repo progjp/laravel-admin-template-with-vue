@@ -75,7 +75,7 @@ module.exports = __webpack_require__(2);
 /* 1 */
 /***/ (function(module, exports) {
 
-
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'E:\\server\\laravel-admin-template-with-vue\\resources\\assets\\js\\admin\\default-scripts.js'\n    at Error (native)");
 
 /***/ }),
 /* 2 */
