@@ -2,7 +2,7 @@
 	<nav class="admin-panel-top-menu navbar">
 		<ul class="top-menu-left-list navbar-start">
 	        <li>
-	        	<a href="#" class="page-navigation-toggle" v-on:click="toggleNavigation($event)">
+	        	<a href="#" class="page-navigation-toggle" v-on:click="toggleLeftNavigation($event)">
 	        		<span class="fa fa-bars"></span>
 	        	</a>
 	        </li>
@@ -21,8 +21,8 @@
 	    			</div>
 	    		</div>
 	    		<div class="mini-profile-menu level-item">
-	    			<a href="#" class="dropdown-menu-trigger"><i class="fa fa-cog"></i></a>
-	    			<ul class="dropdown-menu">
+	    			<a href="#" class="dropdown-menu-trigger" v-on:click="toggleDropdownMenu($event)" v-bind:class="{'active': dropdownMenuShow}"><i class="fa fa-cog"></i></a>
+	    			<ul class="dropdown-menu" v-show="dropdownMenuShow">
 	                    <li class="dropdown-header">Profile Menu</li>
 	                    <li><a href="#">Messages</a></li>                                    
 	                    <li><a href="#">Statistics</a></li>
@@ -39,19 +39,25 @@
 
 <script>
     export default {
-        mounted() {
-            console.log(this.isLeftMenuClose);
-        },
+    	props: {
+    		'is_left_menu_close': {
+    			type: Boolean,
+        		required: true
+    		}
+    	},
         data: () => ({
-    		
+    		dropdownMenuShow: false
     	}),
         methods: {
-        	toggleNavigation(event){
+        	toggleLeftNavigation(event){
         		event.preventDefault();
         		event.stopPropagation();
-
-        		this.isLeftMenuClose = !this.isLeftMenuClose;
-        		console.log(this.isLeftMenuClose);
+        		this.$emit('chnage-left-nav-toggle', !this.is_left_menu_close);
+        	},
+        	toggleDropdownMenu(event){
+        		event.preventDefault();
+        		event.stopPropagation();
+        		this.dropdownMenuShow = !this.dropdownMenuShow;
         	}
         }
     }

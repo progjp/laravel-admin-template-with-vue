@@ -29,7 +29,7 @@
 			<div class="admin-panel-body-wrapper">
 
 				<!-- Top menu -->
-				<admin-top-menu></admin-top-menu>
+				<admin-top-menu v-bind:is_left_menu_close="isLeftMenuClose" v-on:chnage-left-nav-toggle="updateLeftNavToggle($event)"></admin-top-menu>
 
 				<!-- Page content -->
 				<div class="admin-panel-page-content">

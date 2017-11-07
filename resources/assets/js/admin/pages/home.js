@@ -15,6 +15,13 @@ Vue.component(
 const adminApp = new Vue({
     el: '#admin-app',
     data: {
-    	isLeftMenuClose: false
+    	isLeftMenuClose: false,
+    },
+    methods: {
+    	updateLeftNavToggle(eventData){
+    		// console.log(eventData, this["is-left-menu-close"]);
+    		this.isLeftMenuClose = eventData;
+    		console.log(this.isLeftMenuClose);
+    	}
     }
 });
