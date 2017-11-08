@@ -47,33 +47,98 @@
         display: block;
         position: relative;
 
+        &.left-navigation-has-submenu{
+            &:before{
+                position: absolute;
+                font-family: "fontAwesome";
+                content: "\f104";
+                font-size: 14px;
+                width: 20px;
+                height: 20px;
+                color: #FFF;
+                right: 0px;
+                top: 13px;
+            }
+
+            &.open{
+                &:before{
+                    content: "\f107";
+                }
+
+                .left-navigation-dropdown{
+                    display: block;
+                }
+            }
+        }
+        
         a i{
             margin-right: 10px;
             opacity: 0.6;
         }
-    }
+    }//li
 
-    & > li > a{
-        display: block;
-        padding: 12px 10px 12px 15px;
-        font-size: 14px;
-        background: transparent;
-        color: #FFF;
-        text-decoration: none;
-        transition: background-color 200ms linear;
-        border-top: 1px solid $nav-light-border;
-        border-bottom: 1px solid $nav-dark-border;
+    & > li {
+        & > a{
+            display: block;
+            padding: 12px 10px 12px 15px;
+            font-size: 14px;
+            background: transparent;
+            color: #FFF;
+            text-decoration: none;
+            transition: background-color 200ms linear;
+            border-top: 1px solid $nav-light-border;
+            border-bottom: 1px solid $nav-dark-border;
 
-        &:hover{
-            background: #394c5e;
+            &:hover{
+                background: #394c5e;
+
+                i{
+                    opacity: 1;
+                }
+            }
+        }
+
+        &.active > a {
+            background: #2f9fe0;
+            color: #ffffff;
+            border-top-color: #45a9e3;
 
             i{
                 opacity: 1;
             }
         }
+    }//& > li
+}// .laft-navigation
+
+.left-navigation-dropdown{
+    background-color: #293744;
+    position: relative;
+    display: none;
+
+    li.active a{
+        background: #242f3b;
+        padding-left: 35px;
+        color: #FFF;
     }
 
-}// .laft-navigation
+    a{
+        display: block;
+        padding: 10px 0px 10px 30px;
+        color: #AAA;
+        transition: all 200ms ease;
+        position: relative;
+        font-size: 12px;
+
+        &:hover{
+            background: #242f3b;
+            padding-left: 35px;
+            color: #FFF;
+        }
+    }
+}
+.laft-navigation .left-navigation-dropdown a i {
+    margin-right: 5px;
+}
 
 // Top navigation
 .admin-panel-top-menu{
@@ -213,6 +278,127 @@
     }
 
 }// .mini-profile-menu 
+
+// Page Heading 
+.page-heading-block{
+    padding: 18px 20px 10px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+
+    .page-heading-title{
+        font-size: 24px;
+        line-height: 1.1;
+        color: #444;
+        font-weight: 400;
+        margin-bottom: 5px;
+    }
+    .page-heading-subtitle{
+        font-size: 12px;
+        line-height: 1.8;
+        color: #888;
+        font-weight: 400;
+        text-transform: uppercase;
+        margin: 0px 0px 5px;
+    }
+}
+
+// Home Page content
+.page-main-content{
+    padding: 10px;
+}
+
+.button i{
+    margin-right: 8px;
+}
+
+.card{
+    border-radius: 3px;
+
+    .table {
+        margin: 0;
+        font-size: 0.8rem;
+    }
+}
+.card-header-icon, .card-header-title{
+    padding: 0.6rem 0.75rem;
+}
+.card-header-title{
+    font-size: 0.9rem;
+}
+.card-content {
+    padding: 1rem 0.8rem;
+}
+.admin-homepage-form{
+    padding: 0.6rem 0.75rem;
+
+    .label{
+        font-size: 0.9rem;
+    }
+    .textarea{
+        height: 108px;
+        min-height: initial;
+    }
+}
+.admin-home-top{
+    margin-bottom: 1.5rem;
+}
+
+/* ======================== */
+.vue-scrollbar-transition, .vue-scrollbar__scrollbar-vertical, .vue-scrollbar__scrollbar-horizontal {
+  transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+}
+.vue-scrollbar-transition--scrollbar {
+  transition: opacity 0.5s linear;
+  -moz-transition: opacity 0.5s linear;
+  -webkit-transition: opacity 0.5s linear;
+  -o-transition: opacity 0.5s linear;
+}
+
+.vue-scrollbar__wrapper {
+  overflow: hidden;
+  position: relative;
+}
+.vue-scrollbar__wrapper:hover .vue-scrollbar__scrollbar-vertical, .vue-scrollbar__wrapper:hover .vue-scrollbar__scrollbar-horizontal {
+  opacity: 1;
+}
+.vue-scrollbar__scrollbar-vertical, .vue-scrollbar__scrollbar-horizontal {
+  opacity: 0.5;
+  position: absolute;
+  background: transparent;
+}
+.vue-scrollbar__scrollbar-vertical:hover, .vue-scrollbar__scrollbar-horizontal:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+.vue-scrollbar__scrollbar-vertical .scrollbar, .vue-scrollbar__scrollbar-horizontal .scrollbar {
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: default;
+}
+.vue-scrollbar__scrollbar-vertical {
+  width: 10px;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+.vue-scrollbar__scrollbar-vertical .scrollbar {
+  width: 10px;
+}
+.vue-scrollbar__scrollbar-horizontal {
+  height: 10px;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+}
+.vue-scrollbar__scrollbar-horizontal .scrollbar {
+  height: 10px;
+}
+
+.my-scrollbar {
+  max-height: 450px;
+}
 
 
 

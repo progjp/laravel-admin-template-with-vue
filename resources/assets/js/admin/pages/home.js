@@ -8,8 +8,20 @@ Vue.component(
 
 // Top menu
 Vue.component(
-	'admin-top-menu', 
-	require('./../components/admin-menus/AdminLTopMenu.vue')
+    'admin-top-menu', 
+    require('./../components/admin-menus/AdminLTopMenu.vue')
+);
+
+// Admin home page top content
+Vue.component(
+    'admin-home-top', 
+    require('./../components/home/HomeTop.vue')
+);
+
+// Admin home page top content
+Vue.component(
+	'admin-home-bottom', 
+	require('./../components/home/HomeBottom.vue')
 );
 
 const adminApp = new Vue({
@@ -19,9 +31,7 @@ const adminApp = new Vue({
     },
     methods: {
     	updateLeftNavToggle(eventData){
-    		// console.log(eventData, this["is-left-menu-close"]);
     		this.isLeftMenuClose = eventData;
-    		console.log(this.isLeftMenuClose);
     	}
     }
 });
