@@ -33,14 +33,16 @@
 
 <script>
 	import VueScrollbar from 'vue2-scrollbar';
-	// require("vue2-scrollbar/style/vue2-scrollbar.css");
 
     export default {
     	components: { 
     		'vue-scrollbar': VueScrollbar 
     	},
     	data: () => ({
-    		scrollbarStyle: {maxHeight: "100vh"}
+    		scrollbarStyle: {
+    			maxHeight: "80vh",
+    			minHeight: "50vh"
+    		}
     	}),
         methods: {
             leftNavOpenDropdowns(event){
@@ -48,7 +50,6 @@
         		event.stopPropagation();
         		let clickedLi = event.path[1];
         		let liIsOpen = clickedLi.classList.contains('open');
-        		
         		if(liIsOpen){
         			clickedLi.classList.remove('open');
         		}else{
@@ -56,20 +57,20 @@
         		}
             },
             handleResize(){
-            	let scrollBoxHeight = window.innerHeight - 50;
-            	console.log(scrollBoxHeight);
+            	let scrollBoxHeight = window.innerHeight - 70;
+            	this.scrollbarStyle.maxHeight = scrollBoxHeight+'px';
+            	this.scrollbarStyle.minHeight = scrollBoxHeight+'px';
             }
         },
         mounted(){
-        	// this.$refs.Scrollbar.scrollToX(100);
-        	// let menuHeight = this.$refs.Scrollbar.$el.clientHeight;
-        	// this.scrollbarStyle.maxHeight = menuHeight+'px';
-        	// this.scrollbarStyle.maxHeight = '100vh';
+        	let scrollBoxHeight = window.innerHeight - 70;
+        	this.scrollbarStyle.maxHeight = scrollBoxHeight+'px';
+        	this.scrollbarStyle.minHeight = scrollBoxHeight+'px';
 		},
-		ready: function () {
+		created(){
 			window.addEventListener('resize', this.handleResize)
 		},
-		beforeDestroy: function () {
+		beforeDestroy(){
 			window.removeEventListener('resize', this.handleResize)
 		}
     }
