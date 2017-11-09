@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 40);
+/******/ 	return __webpack_require__(__webpack_require__.s = 47);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -14490,15 +14490,21 @@ if (false) {
 }
 
 /***/ }),
-/* 40 */
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(41);
-module.exports = __webpack_require__(46);
+module.exports = __webpack_require__(48);
 
 
 /***/ }),
-/* 41 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(10);
@@ -14509,11 +14515,8 @@ Vue.component('admin-left-menu', __webpack_require__(33));
 // Top menu
 Vue.component('admin-top-menu', __webpack_require__(37));
 
-// Admin home page top content
-Vue.component('admin-home-top', __webpack_require__(42));
-
-// Admin home page top content
-Vue.component('admin-home-bottom', __webpack_require__(44));
+// Posts table
+Vue.component('posts-table', __webpack_require__(53));
 
 var adminApp = new Vue({
     el: '#admin-app',
@@ -14528,7 +14531,11 @@ var adminApp = new Vue({
 });
 
 /***/ }),
-/* 42 */
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -14536,7 +14543,7 @@ var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(43)
+var __vue_template__ = __webpack_require__(54)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -14553,7 +14560,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\admin\\components\\home\\HomeTop.vue"
+Component.options.__file = "resources\\assets\\js\\admin\\components\\table\\PostsTable.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
@@ -14563,9 +14570,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1192d122", Component.options)
+    hotAPI.createRecord("data-v-4e59f638", Component.options)
   } else {
-    hotAPI.reload("data-v-1192d122", Component.options)
+    hotAPI.reload("data-v-4e59f638", Component.options)
 ' + '  }
   module.hot.dispose(function (data) {
     disposed = true
@@ -14576,7 +14583,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 43 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -14590,301 +14597,547 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
-      _c("header", { staticClass: "card-header" }, [
-        _c("p", { staticClass: "card-header-title" }, [
-          _vm._v("\n\t\t\t\tComponent\n\t\t\t")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-header-icon" }, [
-          _c(
-            "a",
-            { staticClass: "button is-info is-small", attrs: { href: "#" } },
-            [_c("i", { staticClass: "fa fa-eye" }), _vm._v(" View All")]
-          )
+    return _c("div", { staticClass: "card table-list-card" }, [
+      _c("div", { staticClass: "table-several-actions" }, [
+        _c("div", { staticClass: "card-header" }, [
+          _c("div", { staticClass: "card-header-title" }, [
+            _c("ul", { staticClass: "table-rows-count-menu" }, [
+              _c("li", { staticClass: "active" }, [
+                _c("a", { attrs: { href: "#" } }, [
+                  _vm._v("All "),
+                  _c("span", { staticClass: "count" }, [_vm._v("(5)")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", {}, [
+                _c("a", { attrs: { href: "#" } }, [
+                  _vm._v("Published "),
+                  _c("span", { staticClass: "count" }, [_vm._v("(4)")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", {}, [
+                _c("a", { attrs: { href: "#" } }, [
+                  _vm._v("Draft "),
+                  _c("span", { staticClass: "count" }, [_vm._v("(1)")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", {}, [
+                _c("a", { attrs: { href: "#" } }, [
+                  _vm._v("Trash "),
+                  _c("span", { staticClass: "count" }, [_vm._v("(1)")])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-header-icon" }, [
+            _c("div", { staticClass: "table-result-search-form" }, [
+              _c("div", { staticClass: "field has-addons" }, [
+                _c("div", { staticClass: "control" }, [
+                  _c("input", {
+                    staticClass: "input is-small",
+                    attrs: { type: "text", placeholder: "Find a post" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "control" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "button is-info is-small",
+                      attrs: { type: "button" }
+                    },
+                    [_vm._v("\n\t\t\t\t\t\t\t\t\tSearch\n\t\t\t\t\t\t\t\t")]
+                  )
+                ])
+              ])
+            ])
+          ])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "card-content" }, [
+      _c("div", { staticClass: "table-several-actions" }, [
+        _c("div", { staticClass: "card-header" }, [
+          _c("div", { staticClass: "card-header-title" }, [
+            _c("div", { staticClass: "field is-grouped" }, [
+              _c("p", { staticClass: "control small-margin" }, [
+                _c("span", { staticClass: "select is-small" }, [
+                  _c("select", [
+                    _c("option", { attrs: { value: "-1" } }, [
+                      _vm._v("Bulk Actions")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "trash" } }, [
+                      _vm._v("Move to Trash")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "delete" } }, [
+                      _vm._v("Delete")
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "control" }, [
+                _c(
+                  "button",
+                  { staticClass: "button is-small", attrs: { type: "button" } },
+                  [_vm._v("\n\t\t\t\t\t\t\t\tApply\n\t\t\t\t\t\t\t")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "control small-margin" }, [
+                _c("span", { staticClass: "select is-small" }, [
+                  _c("select", [
+                    _c("option", { attrs: { value: "-1" } }, [
+                      _vm._v("All dates")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "" } }, [_vm._v("June")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "" } }, [_vm._v("July")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "" } }, [_vm._v("August")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "" } }, [
+                      _vm._v("September")
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "control small-margin" }, [
+                _c("span", { staticClass: "select is-small" }, [
+                  _c("select", [
+                    _c("option", { attrs: { value: "-1" } }, [
+                      _vm._v("All Categories")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "" } }, [_vm._v("HTML")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "" } }, [_vm._v("CSS")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "" } }, [_vm._v("PHP")])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "control" }, [
+                _c(
+                  "button",
+                  { staticClass: "button is-small", attrs: { type: "button" } },
+                  [_vm._v("\n\t\t\t\t\t\t\t\tFilter\n\t\t\t\t\t\t\t")]
+                )
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-header-icon" }, [
+            _c("span", { staticClass: "list-total-items" }, [
+              _vm._v("1000 items")
+            ]),
+            _vm._v(" "),
+            _c("nav", { staticClass: "pagination is-centered is-small" }, [
+              _c("a", { staticClass: "pagination-previous" }, [
+                _vm._v("Previous")
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "pagination-next" }, [_vm._v("Next")]),
+              _vm._v(" "),
+              _c("ul", { staticClass: "pagination-list" }, [
+                _c("li", [
+                  _c("a", { staticClass: "pagination-link" }, [_vm._v("1")])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("span", { staticClass: "pagination-ellipsis" }, [
+                    _vm._v("…")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { staticClass: "pagination-link" }, [_vm._v("45")])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { staticClass: "pagination-link is-current" }, [
+                    _vm._v("46")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { staticClass: "pagination-link" }, [_vm._v("47")])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("span", { staticClass: "pagination-ellipsis" }, [
+                    _vm._v("…")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { staticClass: "pagination-link" }, [_vm._v("86")])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-table-content" }, [
         _c(
           "table",
-          { staticClass: "table is-bordered is-striped is-fullwidth" },
+          { staticClass: "table is-striped is-fullwidth is-hoverable" },
           [
             _c("thead", [
               _c("tr", [
-                _c("th", [_vm._v("Payee name")]),
+                _c("th", { staticClass: "checkbox-column" }, [
+                  _c("input", {
+                    staticClass: "check-all-rows",
+                    attrs: { type: "checkbox", value: "1" }
+                  })
+                ]),
                 _vm._v(" "),
-                _c("th", [_vm._v("Amount")]),
+                _c("th", { staticClass: "id-column" }, [_vm._v("id")]),
                 _vm._v(" "),
-                _c("th", [_vm._v("Description")]),
+                _c("th", [_vm._v("First Name")]),
                 _vm._v(" "),
-                _c("th", [_vm._v("Date/Time")]),
+                _c("th", [_vm._v("Last Name")]),
                 _vm._v(" "),
-                _c("th", [_vm._v("Fee")]),
+                _c("th", [_vm._v("Username")]),
                 _vm._v(" "),
-                _c("th", [_vm._v("Manager")])
+                _c("th", { staticClass: "status-column" }, [_vm._v("Status")]),
+                _vm._v(" "),
+                _c("th", { staticClass: "action-column" }, [_vm._v("Actions")])
               ])
             ]),
             _vm._v(" "),
             _c("tbody", [
               _c("tr", [
-                _c("td", [_vm._v("Angelina Jolie")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("$157.10")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("Dont forget about fee")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("20.01.2014 19:24")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("$30.42")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("John Doe")])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("td", [_vm._v("Brad Pitt")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("$39.45")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("Delivery...")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("20.01.2014 18:55")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("$3.94")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("John Doe")])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("td", [_vm._v("Martin Freeman")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("$78.00")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("Will pay by cash")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("20.01.2014 16:41")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("$0.00")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("John Doe")])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("td", [_vm._v("Lucy Liu")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("$427.31")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("Call me...")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("20.01.2014 15:11")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("$15.71")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("John Doe")])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("td", [_vm._v("Jonny Lee Miller")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("$65.15")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("Empty")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("20.01.2014 12:01")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("$5.65")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("John Doe")])
-              ])
-            ])
-          ]
-        )
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1192d122", module.exports)
-  }
-}
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(45)
-/* template functional */
-  var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\admin\\components\\home\\HomeBottom.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2dd7d124", Component.options)
-  } else {
-    hotAPI.reload("data-v-2dd7d124", Component.options)
-' + '  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "columns" }, [
-      _c("div", { staticClass: "column" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("header", { staticClass: "card-header" }, [
-            _c("p", { staticClass: "card-header-title" }, [
-              _vm._v("\n\t\t\t\t\tComponent\n\t\t\t\t")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-header-icon" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "button is-info is-small",
-                  attrs: { href: "#" }
-                },
-                [_c("i", { staticClass: "fa fa-eye" }), _vm._v(" View All")]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-content" }, [
-            _c(
-              "table",
-              { staticClass: "table is-bordered is-striped is-fullwidth" },
-              [
-                _c("thead", [
-                  _c("tr", [
-                    _c("th", [_vm._v("Payee name")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("Description")])
-                  ])
+                _c("td", [
+                  _c("input", {
+                    staticClass: "bulk-action-check",
+                    attrs: { type: "checkbox", name: "bulk_id[]", value: "1" }
+                  })
                 ]),
                 _vm._v(" "),
-                _c("tbody", [
-                  _c("tr", [
-                    _c("td", [_vm._v("Angelina Jolie")]),
+                _c("td", [_vm._v("1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Dmitry")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Ivaniuk")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("dvaniuk")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Published")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "action-cell" }, [
+                  _c("div", { staticClass: "buttons" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "button is-primary is-small",
+                        attrs: { href: "#", title: "Edit" }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-pencil",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("td", [_vm._v("Dont forget about fee")])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td", [_vm._v("Angelina Jolie")]),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "button is-success is-small",
+                        attrs: { href: "#", title: "View" }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-external-link",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("td", [_vm._v("Dont forget about fee")])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td", [_vm._v("Angelina Jolie")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Dont forget about fee")])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td", [_vm._v("Angelina Jolie")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Dont forget about fee")])
-                  ]),
-                  _vm._v(" "),
-                  _c("tr", [
-                    _c("td", [_vm._v("Angelina Jolie")]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v("Dont forget about fee")])
+                    _c(
+                      "a",
+                      {
+                        staticClass: "button is-danger is-small",
+                        attrs: { href: "#", title: "Trash" }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-trash-o",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    )
                   ])
                 ])
-              ]
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "column" }, [
-        _c(
-          "form",
-          {
-            staticClass: "admin-homepage-form card",
-            attrs: { method: "post" }
-          },
-          [
-            _c("div", { staticClass: "field" }, [
-              _c("label", { staticClass: "label" }, [_vm._v("Name")]),
+              ]),
               _vm._v(" "),
-              _c("div", { staticClass: "control" }, [
-                _c("input", {
-                  staticClass: "input",
-                  attrs: { type: "text", placeholder: "e.g Alex Smith" }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "field" }, [
-              _c("label", { staticClass: "label" }, [_vm._v("Message")]),
+              _c("tr", [
+                _c("td", [
+                  _c("input", {
+                    staticClass: "bulk-action-check",
+                    attrs: { type: "checkbox", name: "bulk_id[]", value: "1" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Dmitry")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Ivaniuk")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("dvaniuk")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Published")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "action-cell" }, [
+                  _c("div", { staticClass: "buttons" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "button is-primary is-small",
+                        attrs: { href: "#", title: "Edit" }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-pencil",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "button is-success is-small",
+                        attrs: { href: "#", title: "View" }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-external-link",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "button is-danger is-small",
+                        attrs: { href: "#", title: "Trash" }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-trash-o",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ]),
               _vm._v(" "),
-              _c("div", { staticClass: "control" }, [
-                _c("textarea", {
-                  staticClass: "textarea",
-                  attrs: { placeholder: "Textarea" }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "field" }, [
-              _c("div", { staticClass: "control" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "button is-info is-small",
-                    attrs: { type: "button" }
-                  },
-                  [_vm._v("Submit")]
-                )
+              _c("tr", [
+                _c("td", [
+                  _c("input", {
+                    staticClass: "bulk-action-check",
+                    attrs: { type: "checkbox", name: "bulk_id[]", value: "1" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Dmitry")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Ivaniuk")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("dvaniuk")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Published")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "action-cell" }, [
+                  _c("div", { staticClass: "buttons" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "button is-primary is-small",
+                        attrs: { href: "#", title: "Edit" }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-pencil",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "button is-success is-small",
+                        attrs: { href: "#", title: "View" }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-external-link",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "button is-danger is-small",
+                        attrs: { href: "#", title: "Trash" }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-trash-o",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [
+                  _c("input", {
+                    staticClass: "bulk-action-check",
+                    attrs: { type: "checkbox", name: "bulk_id[]", value: "1" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Dmitry")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Ivaniuk")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("dvaniuk")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Published")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "action-cell" }, [
+                  _c("div", { staticClass: "buttons" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "button is-primary is-small",
+                        attrs: { href: "#", title: "Edit" }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-pencil",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "button is-success is-small",
+                        attrs: { href: "#", title: "View" }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-external-link",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "button is-danger is-small",
+                        attrs: { href: "#", title: "Trash" }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-trash-o",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("tr", [
+                _c("td", [
+                  _c("input", {
+                    staticClass: "bulk-action-check",
+                    attrs: { type: "checkbox", name: "bulk_id[]", value: "1" }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v("1")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Dmitry")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Ivaniuk")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("dvaniuk")]),
+                _vm._v(" "),
+                _c("td", [_vm._v("Published")]),
+                _vm._v(" "),
+                _c("td", { staticClass: "action-cell" }, [
+                  _c("div", { staticClass: "buttons" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "button is-primary is-small",
+                        attrs: { href: "#", title: "Edit" }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-pencil",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "button is-success is-small",
+                        attrs: { href: "#", title: "View" }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-external-link",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "button is-danger is-small",
+                        attrs: { href: "#", title: "Trash" }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-trash-o",
+                          attrs: { "aria-hidden": "true" }
+                        })
+                      ]
+                    )
+                  ])
+                ])
               ])
             ])
           ]
@@ -14898,15 +15151,9 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-2dd7d124", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-4e59f638", module.exports)
   }
 }
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

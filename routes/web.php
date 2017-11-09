@@ -16,3 +16,4 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/table', 'AdminController@table')->name('table');

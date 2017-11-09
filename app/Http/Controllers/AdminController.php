@@ -13,4 +13,13 @@ class AdminController extends Controller
     {
     	return view('admin.index');
     }
+
+    /**
+     * Table page
+     * Posts page
+     */
+    public function table()
+    {
+    	return view('admin.table');
+    }
 }
