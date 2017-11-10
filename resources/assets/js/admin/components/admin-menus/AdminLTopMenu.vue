@@ -55,6 +55,7 @@
         	},
         	toggleDropdownMenu(event){
         		event.preventDefault();
+        		event.stopPropagation();
         		this.dropdownMenuShow = !this.dropdownMenuShow;
         	},
         	eventClickBody(){

@@ -60,6 +60,7 @@
             	let scrollBoxHeight = window.innerHeight - 70;
             	this.scrollbarStyle.maxHeight = scrollBoxHeight+'px';
             	this.scrollbarStyle.minHeight = scrollBoxHeight+'px';
+            	this.$refs.Scrollbar.scrollToY(0);
             }
         },
         mounted(){
