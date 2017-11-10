@@ -19,7 +19,6 @@ Vue.component(
 );
 
 
-
 const adminApp = new Vue({
     el: '#admin-app',
     data: {

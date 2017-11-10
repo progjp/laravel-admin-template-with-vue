@@ -97,8 +97,10 @@
 			<table class="table is-striped is-fullwidth is-hoverable">
                 <thead>
                     <tr>
-                        <th class="checkbox-column"><input type="checkbox" class="check-all-rows" value="1"></th>
-                        <th class="id-column">id</th>
+                        <th class="checkbox-column">
+                        	<input type="checkbox" v-model="checkedAllBulk" value="1" v-on:change="changedAllBulk">
+                        </th>
+                        <th class="id-column">ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Username</th>
@@ -107,78 +109,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><input type="checkbox" name="bulk_id[]" value="1" class="bulk-action-check"></td>
-                        <td>1</td>
+
+                    <tr v-for="post in posts">
+                        <td><input type="checkbox" v-model="bulkActionIds" v-bind:value="post.id"></td>
+                        <td>{{ post.id }}</td>
                         <td>Dmitry</td>
                         <td>Ivaniuk</td>
                         <td>dvaniuk</td>
                         <td>Published</td>
                         <td class="action-cell">
                         	<div class="buttons">
-                            	<a href="#" class="button is-primary is-small" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                            	<a href="#" class="button is-success is-small" title="View"><i class="fa fa-external-link" aria-hidden="true"></i></a>
-                            	<a href="#" class="button is-danger is-small" title="Trash"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="bulk_id[]" value="1" class="bulk-action-check"></td>
-                        <td>1</td>
-                        <td>Dmitry</td>
-                        <td>Ivaniuk</td>
-                        <td>dvaniuk</td>
-                        <td>Published</td>
-                        <td class="action-cell">
-                        	<div class="buttons">
-                            	<a href="#" class="button is-primary is-small" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                            	<a href="#" class="button is-success is-small" title="View"><i class="fa fa-external-link" aria-hidden="true"></i></a>
-                            	<a href="#" class="button is-danger is-small" title="Trash"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="bulk_id[]" value="1" class="bulk-action-check"></td>
-                        <td>1</td>
-                        <td>Dmitry</td>
-                        <td>Ivaniuk</td>
-                        <td>dvaniuk</td>
-                        <td>Published</td>
-                        <td class="action-cell">
-                        	<div class="buttons">
-                            	<a href="#" class="button is-primary is-small" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                            	<a href="#" class="button is-success is-small" title="View"><i class="fa fa-external-link" aria-hidden="true"></i></a>
-                            	<a href="#" class="button is-danger is-small" title="Trash"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="bulk_id[]" value="1" class="bulk-action-check"></td>
-                        <td>1</td>
-                        <td>Dmitry</td>
-                        <td>Ivaniuk</td>
-                        <td>dvaniuk</td>
-                        <td>Published</td>
-                        <td class="action-cell">
-                        	<div class="buttons">
-                            	<a href="#" class="button is-primary is-small" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                            	<a href="#" class="button is-success is-small" title="View"><i class="fa fa-external-link" aria-hidden="true"></i></a>
-                            	<a href="#" class="button is-danger is-small" title="Trash"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="bulk_id[]" value="1" class="bulk-action-check"></td>
-                        <td>1</td>
-                        <td>Dmitry</td>
-                        <td>Ivaniuk</td>
-                        <td>dvaniuk</td>
-                        <td>Published</td>
-                        <td class="action-cell">
-                        	<div class="buttons">
-                            	<a href="#" class="button is-primary is-small" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                            	<a href="#" class="button is-success is-small" title="View"><i class="fa fa-external-link" aria-hidden="true"></i></a>
-                            	<a href="#" class="button is-danger is-small" title="Trash"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                            	<a href="#" class="button is-primary is-small" title="Edit"><i class="fa fa-pencil"></i></a>
+                            	<a href="#" class="button is-success is-small" title="View"><i class="fa fa-external-link"></i></a>
+                            	<a href="#" class="button is-danger is-small" title="Trash"><i class="fa fa-trash-o"></i></a>
                             </div>
                         </td>
                     </tr>
@@ -186,5 +129,36 @@
                 </tbody>
             </table>
 		</div>
+
 	</div>
 </template>
+
+<script>
+	export default {
+		data: () => ({
+			checkedAllBulk: 0,
+			bulkActionIds: [],
+			posts: [
+				{"id": 1},
+				{"id": 2},
+				{"id": 6},
+				{"id": 4},
+				{"id": 5},
+				{"id": 8}
+			]
+		}),
+		methods: {
+			changedAllBulk(){
+				var loopActionIds = [];
+				if(this.checkedAllBulk){
+					this.posts.map(function(value, key){
+						loopActionIds.push(value.id);
+					});
+					this.bulkActionIds = loopActionIds;
+				}else{
+					this.bulkActionIds = loopActionIds;
+				}
+			}
+		}
+	}
+</script>

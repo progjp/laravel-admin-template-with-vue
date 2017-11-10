@@ -12938,6 +12938,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -12956,8 +12957,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         leftNavOpenDropdowns: function leftNavOpenDropdowns(event) {
             event.preventDefault();
-            event.stopPropagation();
-            var clickedLi = event.path[1];
+            var clickedLi = event.target.parentElement;
             var liIsOpen = clickedLi.classList.contains('open');
             if (liIsOpen) {
                 clickedLi.classList.remove('open');
@@ -14168,6 +14168,13 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "/form" } }, [
+              _c("i", { staticClass: "fa fa-wpforms" }),
+              _vm._v(" Form")
+            ])
+          ]),
+          _vm._v(" "),
           _c("li", { staticClass: "left-navigation-has-submenu open" }, [
             _c(
               "a",
@@ -14373,14 +14380,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     toggleLeftNavigation: function toggleLeftNavigation(event) {
       event.preventDefault();
-      event.stopPropagation();
       this.$emit('chnage-left-nav-toggle', !this.is_left_menu_close);
     },
     toggleDropdownMenu: function toggleDropdownMenu(event) {
       event.preventDefault();
-      event.stopPropagation();
       this.dropdownMenuShow = !this.dropdownMenuShow;
+    },
+    eventClickBody: function eventClickBody() {
+      this.dropdownMenuShow = false;
+    },
+    stopElementPropatation: function stopElementPropatation(event) {
+      event.stopPropagation();
     }
+  },
+  created: function created() {
+    document.body.addEventListener('click', this.eventClickBody);
   }
 });
 
@@ -14446,7 +14460,12 @@ var render = function() {
                   expression: "dropdownMenuShow"
                 }
               ],
-              staticClass: "dropdown-menu"
+              staticClass: "dropdown-menu",
+              on: {
+                click: function($event) {
+                  _vm.stopElementPropatation($event)
+                }
+              }
             },
             [
               _c("li", { staticClass: "dropdown-header" }, [

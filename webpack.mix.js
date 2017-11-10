@@ -21,5 +21,8 @@ mix.js('resources/assets/js/admin/pages/home.js', 'public/js/admin');
 // Posts Page
 mix.js('resources/assets/js/admin/pages/table.js', 'public/js/admin');
 
+// Forms Page
+mix.js('resources/assets/js/admin/pages/form.js', 'public/js/admin');
+
 // CSS
 mix.sass('resources/assets/sass/admin/style.scss', 'public/css/admin');

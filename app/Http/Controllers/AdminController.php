@@ -22,4 +22,13 @@ class AdminController extends Controller
     {
     	return view('admin.table');
     }
+
+    /**
+     * Form Page
+     */
+    public function form()
+    {
+        return view('admin.form');
+    }
+
 }

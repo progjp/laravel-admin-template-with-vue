@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/table', 'AdminController@table')->name('table');
+Route::get('/form', 'AdminController@form')->name('form');

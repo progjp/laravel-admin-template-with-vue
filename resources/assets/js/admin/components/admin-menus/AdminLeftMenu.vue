@@ -9,6 +9,7 @@
 		    	<li class="active"><a href="/admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
 		    	<li><a href="/table"><i class="fa fa-pencil"></i> Posts</a></li>
 		    	<li><a href="/table"><i class="fa fa-table"></i> Table</a></li>
+		    	<li><a href="/form"><i class="fa fa-wpforms"></i> Form</a></li>
 		    	<li class="left-navigation-has-submenu open">
 		    		<a href="#" v-on:click="leftNavOpenDropdowns($event)"><i class="fa fa-map-marker"></i> Dropdown</a>
 		    		<ul class="left-navigation-dropdown">
@@ -47,8 +48,7 @@
         methods: {
             leftNavOpenDropdowns(event){
         		event.preventDefault();
-        		event.stopPropagation();
-        		let clickedLi = event.path[1];
+        		let clickedLi = event.target.parentElement;
         		let liIsOpen = clickedLi.classList.contains('open');
         		if(liIsOpen){
         			clickedLi.classList.remove('open');

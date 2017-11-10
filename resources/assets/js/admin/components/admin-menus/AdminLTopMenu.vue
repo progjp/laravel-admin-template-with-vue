@@ -22,7 +22,7 @@
 	    		</div>
 	    		<div class="mini-profile-menu level-item">
 	    			<a href="#" class="dropdown-menu-trigger" v-on:click="toggleDropdownMenu($event)" v-bind:class="{'active': dropdownMenuShow}"><i class="fa fa-cog"></i></a>
-	    			<ul class="dropdown-menu" v-show="dropdownMenuShow">
+	    			<ul class="dropdown-menu" v-show="dropdownMenuShow" v-on:click="stopElementPropatation($event)">
 	                    <li class="dropdown-header">Profile Menu</li>
 	                    <li><a href="#">Messages</a></li>                                    
 	                    <li><a href="#">Statistics</a></li>
@@ -51,14 +51,21 @@
         methods: {
         	toggleLeftNavigation(event){
         		event.preventDefault();
-        		event.stopPropagation();
         		this.$emit('chnage-left-nav-toggle', !this.is_left_menu_close);
         	},
         	toggleDropdownMenu(event){
         		event.preventDefault();
-        		event.stopPropagation();
         		this.dropdownMenuShow = !this.dropdownMenuShow;
+        	},
+        	eventClickBody(){
+        		this.dropdownMenuShow = false;
+        	},
+        	stopElementPropatation(event){
+        		event.stopPropagation();
         	}
+        },
+        created(){
+        	document.body.addEventListener('click', this.eventClickBody)
         }
     }
 </script>

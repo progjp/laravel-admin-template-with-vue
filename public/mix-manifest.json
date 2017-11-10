@@ -1,5 +1,6 @@
 {
     "/js/admin/home.js": "/js/admin/home.js",
     "/css/admin/style.css": "/css/admin/style.css",
-    "/js/admin/table.js": "/js/admin/table.js"
+    "/js/admin/table.js": "/js/admin/table.js",
+    "/js/admin/form.js": "/js/admin/form.js"
 }
