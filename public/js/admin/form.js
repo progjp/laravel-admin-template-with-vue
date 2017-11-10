@@ -14598,6 +14598,9 @@ Vue.component('admin-left-menu', __webpack_require__(33));
 // Top menu
 Vue.component('admin-top-menu', __webpack_require__(37));
 
+// Form Page Fields
+Vue.component('admin-form-fields', __webpack_require__(60));
+
 var adminApp = new Vue({
     el: '#admin-app',
     data: {
@@ -14607,23 +14610,6 @@ var adminApp = new Vue({
         updateLeftNavToggle: function updateLeftNavToggle(eventData) {
             this.isLeftMenuClose = eventData;
         }
-    },
-    created: function created() {
-        /**
-         * Enable WYSIWYG Editor
-         * https://www.tinymce.com/docs/get-started/
-         */
-        tinymce.init({
-            selector: '#admin-editor',
-            theme: "modern",
-            toolbar1: 'formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | code',
-            toolbar2: 'link table forecolor backcolor | undo redo',
-            menubar: false,
-            plugins: 'lists table textcolor link wordcount code',
-            branding: false,
-            height: "250",
-            width: "100%"
-        });
     }
 });
 
@@ -27414,6 +27400,492 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(62)
+/* template */
+var __vue_template__ = __webpack_require__(61)
+/* template functional */
+  var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\admin\\components\\form\\FormFields.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6ae34b3b", Component.options)
+  } else {
+    hotAPI.reload("data-v-6ae34b3b", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "columns" }, [
+      _c("div", { staticClass: "column is-9-desktop is-7-tablet" }, [
+        _c("div", { staticClass: "card form-fields" }, [
+          _c("div", { staticClass: "card-content" }, [
+            _c("div", { staticClass: "field" }, [
+              _c("label", { staticClass: "label" }, [_vm._v("Title")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "control" }, [
+                _c("input", {
+                  staticClass: "input",
+                  attrs: { type: "text", placeholder: "Title" }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "field admin-editor-field" }, [
+              _c("div", { staticClass: "control" }, [
+                _c("textarea", { attrs: { id: "admin-editor" } })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "field" }, [
+              _c("label", { staticClass: "label" }, [_vm._v("Valid Field")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "control has-icons-right" }, [
+                _c("input", {
+                  staticClass: "input is-success",
+                  attrs: {
+                    type: "text",
+                    placeholder: "Text input",
+                    value: "bulma"
+                  }
+                }),
+                _vm._v(" "),
+                _c("span", { staticClass: "icon is-small is-right" }, [
+                  _c("i", { staticClass: "fa fa-check" })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "help is-success" }, [
+                _vm._v("This valid is data")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "field" }, [
+              _c("label", { staticClass: "label" }, [_vm._v("Invalid Text")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "control has-icons-right" }, [
+                _c("input", {
+                  staticClass: "input is-danger",
+                  attrs: {
+                    type: "text",
+                    placeholder: "Type here",
+                    value: "hello@"
+                  }
+                }),
+                _vm._v(" "),
+                _c("span", { staticClass: "icon is-small is-right" }, [
+                  _c("i", { staticClass: "fa fa-warning" })
+                ])
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "help is-danger" }, [
+                _vm._v("This is invalid")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "field" }, [
+              _c("label", { staticClass: "label" }, [_vm._v("Select")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "control" }, [
+                _c("div", { staticClass: "select" }, [
+                  _c("select", [
+                    _c("option", [_vm._v("Select dropdown")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("With options")])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "field" }, [
+              _c("label", { staticClass: "label" }, [_vm._v("Textarea")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "control" }, [
+                _c("textarea", {
+                  staticClass: "textarea",
+                  attrs: { placeholder: "Textarea" }
+                })
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "field" }, [
+              _c("label", { staticClass: "label" }, [_vm._v("Checkbox")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "control" }, [
+                _c("label", { staticClass: "checkbox" }, [
+                  _c("input", { attrs: { type: "checkbox" } }),
+                  _vm._v("\n\t\t\t\t\t\t\tYou will find "),
+                  _c("a", { attrs: { href: "#" } }, [_vm._v("the list")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "control" }, [
+                _c("label", { staticClass: "checkbox" }, [
+                  _c("input", { attrs: { type: "checkbox" } }),
+                  _vm._v("\n\t\t\t\t\t\t\tAnother checkbox\n\t\t\t\t\t\t")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "field" }, [
+              _c("label", { staticClass: "label" }, [_vm._v("Inline Radios")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "control" }, [
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", { attrs: { type: "radio", name: "question" } }),
+                  _vm._v("\n\t\t\t\t\t\t\tYes\n\t\t\t\t\t\t")
+                ]),
+                _vm._v(" "),
+                _c("label", { staticClass: "radio" }, [
+                  _c("input", { attrs: { type: "radio", name: "question" } }),
+                  _vm._v("\n\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t")
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "column is-3-desktop is-5-tablet" }, [
+        _c("div", { staticClass: "card form-fields" }, [
+          _c("div", { staticClass: "card-content" }, [
+            _c("div", { staticClass: "field" }, [
+              _c("label", { staticClass: "label" }, [_vm._v("Preferences")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "control" }, [
+                _c("label", { staticClass: "checkbox" }, [
+                  _c("input", { attrs: { type: "checkbox" } }),
+                  _vm._v("\n\t\t\t\t\t\t\tSave my preferences\n\t\t\t\t\t\t")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "control" }, [
+                _c("label", { staticClass: "checkbox" }, [
+                  _c("input", { attrs: { type: "checkbox" } }),
+                  _vm._v("\n\t\t\t\t\t\t\tSave my preferences\n\t\t\t\t\t\t")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "control" }, [
+                _c("label", { staticClass: "checkbox" }, [
+                  _c("input", { attrs: { type: "checkbox" } }),
+                  _vm._v("\n\t\t\t\t\t\t\tSave my preferences\n\t\t\t\t\t\t")
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "field" }, [
+              _c("label", { staticClass: "label" }, [_vm._v("Post Status")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "control" }, [
+                _c("div", { staticClass: "select" }, [
+                  _c("select", [
+                    _c("option", [_vm._v("Publish")]),
+                    _vm._v(" "),
+                    _c("option", [_vm._v("Draft")])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "file has-name is-boxed field right-column-file" },
+              [
+                _c("label", { staticClass: "file-label" }, [
+                  _c("input", {
+                    staticClass: "file-input",
+                    attrs: { type: "file", name: "resume" }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "file-cta" }, [
+                    _c("span", { staticClass: "file-icon" }, [
+                      _c("i", { staticClass: "fa fa-upload" })
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "file-label" }, [
+                      _vm._v(
+                        "\n\t\t\t\t\t\t\t\tChoose an image\n\t\t\t\t\t\t\t"
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "file-name" }, [
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\tScreen Shot 2017-07-29 at 15.54.25.png\n\t\t\t\t\t\t"
+                    )
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "field is-grouped" }, [
+              _c("div", { staticClass: "control" }, [
+                _c("button", { staticClass: "button is-link" }, [
+                  _c("i", { staticClass: "fa fa-floppy-o" }),
+                  _vm._v(" Save")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "control" }, [
+                _c("button", { staticClass: "button is-danger" }, [
+                  _c("i", { staticClass: "fa fa-power-off" }),
+                  _vm._v(" Cancel")
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-6ae34b3b", module.exports)
+  }
+}
+
+/***/ }),
+/* 62 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    created: function created() {
+        /**
+         * Enable WYSIWYG Editor
+         */
+        tinymce.init({
+            selector: '#admin-editor',
+            theme: "modern",
+            toolbar1: 'formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | code',
+            toolbar2: 'link table forecolor backcolor | undo redo',
+            menubar: false,
+            plugins: 'lists table textcolor link wordcount code',
+            branding: false,
+            height: "250",
+            width: "100%"
+        });
+    }
+});
 
 /***/ })
 /******/ ]);
